@@ -1,0 +1,70 @@
+    *
+      {
+        padding:0;
+        margin:0;
+      }
+      body{
+        background-image:url('train pic 3.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      h1
+      {
+        color:blue;
+        margin-top: 10px;
+      }
+      input::placeholder
+      {
+        color:blue;
+      }
+      input[type="date"]::placeholder
+      {
+        color:blue;
+      }
+    select::placeholder
+    {
+        color:blue;
+    }
+    #con
+    {
+        width:120px;
+        height:40px;
+        font-size:20px;
+        background-color:black;
+        color:white;
+        border-radius:20px;
+        margin-left: 10px;
+    }
+    #go
+    {
+        width:120px;
+        height:40px;
+        font-size:20px;
+        background-color:black;
+        color:white;
+        border-radius:20px;   
+    }   
+    #popup {
+        display: none; /* Hide the popup by default */
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;        
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.5); /* Semi-transparent background */
+        justify-content: center;
+        align-items: center;
+        margin-right: 50px;
+    }    
+    #pop-content {
+        background-color: rgba(255, 192, 203, 0.9); /* Transparent pink */
+        padding: 20px;
+        text-align: center;
+        border-radius: 10px;
+        width:300px;
+        height: 300px;
+    }
+    
+    
+  

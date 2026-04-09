@@ -1,0 +1,93 @@
+ALTER TABLE `train` ADD `start_time` TIME NOT NULL AFTER `end_station`, ADD `end_time` TIME NOT NULL AFTER `start_time`;
+
+INSERT INTO `agent` (`agent_id`, `name`, `password`) VALUES ('001', 'rosy', 'rosy@123');
+
+
+insert into train(train_no,train_name,start_station,end_station,start_time,end_time,ticket_price)
+values('A001','Express','Tambaram','Tindivanam','9','11','100');
+
+ALTER TABLE agent ADD COLUMN email varchar(30) AFTER agent_id;
+
+insert into compartment(compartment,train_no,class,booked_seat,avail_seat,Max_seat)
+values('A001AC1','A001','AC','0','5','5'),
+('A001AC2','A001','AC','0','5','5'),
+('A001lad','A001','ladies','0','5','5'),
+('A001sl1','A001','sleeper','0','5','5'),
+('A001sl2','A001','sleeper','0','5','5');
+
+
+SELECT t.train_no,t.train_name,t.start_station,t.end_station,ticket_price,SUM(c.avail_seat) AS total_seat FROM train t JOIN compartment c ON t.train_no = c.train_no WHERE t.start_station = 'Tambaram' AND t.end_station = 'Tindivanam' AND c.class IN ('AC', 'AC');
+alter table booking add column pnr varchar(100);
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <form method="POST" action="login_process.php">
+        <input type="text" id="mob" placeholder="Enter your Mobile number" name="mob" required><br>
+        <input type="text" id="question" placeholder="Answer the security question" name="answer" required><br>
+        <button type="submit">Login</button>
+    </form>
+    <script>
+        const questions = ["pet", "color", "birthplace"];
+        let selectedQuestion = questions[Math.floor(Math.random() * questions.length)];
+        const questionLabel = {
+            "pet": "What is the name of your first pet or favorite animal?",
+            "color": "What is the name of your favorite color?",
+            "birthplace": "What is the name of your birth place?"
+        };
+
+        document.getElementById('question').placeholder = questionLabel[selectedQuestion];
+
+        // Store the selected question in a hidden input for later verification
+        let hiddenInput = document.createElement('input');
+        hiddenInput.type = 'hidden';
+        hiddenInput.name = 'question';
+        hiddenInput.value = selectedQuestion;
+        document.forms[0].appendChild(hiddenInput);
+    </script>
+</body>
+</html>
+login_process.php
+This script verifies the mobile number and the answer to the security question.
+
+php
+Copy code
+<?php
+// Database connection
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "your_database";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Retrieve form data
+$mobile = $_POST['mob'];
+$question = $_POST['question'];
+$answer = $_POST['answer'];
+
+// Query to verify the user's mobile number and security question answer
+$sql = "SELECT * FROM users WHERE mobile = '$mobile' AND $question = '$answer'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    echo "Login successful!";
+    // Redirect to the user's dashboard or homepage
+} else {
+    echo "Invalid mobile number or answer to the security question.";
+}
+
+$conn->close();
+?>
