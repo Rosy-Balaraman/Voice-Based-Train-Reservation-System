@@ -25,7 +25,16 @@ To develop an inclusive train reservation system that enhances accessibility by 
 🛠️ Tech Stack :
 
 Frontend: HTML, CSS, JavaScript
+
 Backend: PHP
+
 Database: MySQL
+
 Email Service: PHPMailer
+
 Voice Interface: Speech Recognition & Speech Synthesis APIs
+
+👨‍💻 Author
+
+Rosy B
+GitHub: https://github.com/Rosy-Balaraman
