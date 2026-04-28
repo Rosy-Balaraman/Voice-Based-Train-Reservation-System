@@ -35,7 +35,8 @@ if (isset($_POST['send_email']))
             $mail->SMTPSecure = 'tls';
             $mail->Port = 587;
 
-            $mail->setFrom('cheerfulljourney.rrs@gmail.com', 'Cheerful Journey');
+            // For security reasons, the email and password will be hidden.
+            $mail->setFrom('', 'Cheerful Journey');
             $mail->addAddress($email);
 
             $mail->isHTML(true);
