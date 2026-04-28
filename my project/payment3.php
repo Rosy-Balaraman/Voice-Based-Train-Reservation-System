@@ -918,13 +918,15 @@ require '../PHPMailer/src/SMTP.php';
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'cheerfulljourney.rrs@gmail.com'; 
-        $mail->Password = 'dpgl xdaf clbf gyvv'; 
+        // For security reasons, the email and password will be hidden.
+        $mail->Username = ''; 
+        $mail->Password = ''; 
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
 
         // Recipients
-        $mail->setFrom('cheerfulljourney.rrs@gmail.com', 'Cheerful Journey');
+        // For security reasons, the email and password will be hidden.
+        $mail->setFrom('', 'Cheerful Journey');
         $mail->addAddress($email, $f_name); // The recipient email
 
         // Content
